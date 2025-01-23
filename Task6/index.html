@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="methodA()">A</button>
+    <button onclick="metohdB()">B</button>
+    <button onclick="metohdC()">C</button>
+    <button onclick="metohdD()">D</button>
+    <button onclick="metohdE()">E</button>
+
+    <script>
+
+        function create(_,i){
+                return i;
+            }
+        function methodA(){
+            
+            
+
+            const numbers = Array.from({ length: 101 }, create);
+
+            const numbers2 = numbers.filter(num=>num%3 !== 0);
+            console.log(numbers2);
+
+        }
+
+        function metohdB(){
+            function fun(_,i){
+                return i + 100;
+            }
+            const numbers = Array.from({ length: 101 }, create);
+            for(let i=101;i<=150;i++)
+            numbers.push(i);
+            
+            console.log(numbers);
+
+        }
+        
+
+        function metohdC(){
+
+            function fun(element){
+                console.log(element+3);
+            }
+
+            const numbers = Array.from({ length: 101 }, create);
+
+            numbers.forEach(fun);
+
+        };
+
+        function metohdD(){
+            const numbers = Array.from({ length: 101 }, create);
+            const result = numbers.slice(20,41);
+            console.log(result)
+        }
+
+        function metohdE(){
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        function fun(a,b){
+            return b-a;
+        }
+
+        const numbers = Array.from({ length: 101 }, create);
+
+         shuffleArray(numbers);
+         console.log(numbers);
+         numbers.sort(fun);
+         console.log(numbers);
+
+        }
+    </script>
+
+</body>
+</html>
