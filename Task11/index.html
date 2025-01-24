@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="fun()" id="b1">Git Ip</button>
+</body>
+<script>
+
+    function handleResponse(response) {
+        return response.text(); 
+    }
+    function handleData(data) {
+        document.getElementById('b1').textContent=data;
+
+    }
+
+    function handleError(error) {
+       window.alert(error.message)
+    }
+
+    function fun(){
+        const url = "https://api.ipify.org/"
+        
+        
+        
+        fetch(url)
+            .then(handleResponse)
+            .then(handleData)
+            .catch(handleError);
+        
+
+    }
+</script>
+</html>
