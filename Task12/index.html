@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Object Creation</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="name"  placeholder="Name">
+        <br>
+        <input type="number" id="age" placeholder="Age">
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+
+
+
+    <script>
+        document.getElementById('submit').addEventListener('click',create)
+        function create(){
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+
+            if(!name ||!age){
+                alert("Please fill the fields")
+                return
+            }
+
+            const User ={
+                name:name,
+                age:age,
+                time: new Date().toLocaleString()
+            }
+
+            const {name:username,age:userage,time} = User;
+
+            window.alert(`Your name is: ${name}\nYour age is: ${age}\nTime: ${time}`);
+        }
+
+        
+    </script>
+</body>
+</html>

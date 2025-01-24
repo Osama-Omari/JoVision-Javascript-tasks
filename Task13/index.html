@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task13</title>
+</head>
+<body>
+    <form action="">
+        <input type="text" id="name"  placeholder="Name">
+        <br>
+        <button type="button" id="submit">Submit</button>
+    </form>
+
+
+
+    <script>
+
+    
+
+    
+
+        document.getElementById('submit').addEventListener('click',create)
+        function create(){
+            const name = document.getElementById('name').value;
+
+            const url = "https://api.agify.io";
+
+            if(!name){
+                alert("Please fill the fields")
+                return
+            }
+
+            let myPromise = new Promise(function(myResolve, myReject) {
+                fetch(`${url}?name=${name}`)
+                .then(function(response){
+                    if(!response.ok)
+                        myReject('Error');
+                    else
+                        return response.json();
+                })
+                .then(function(data){
+                    const {name,age}=data;
+                    myResolve({name,age});
+                })
+                .catch(error=>myReject(error));
+            });
+
+
+
+
+
+            myPromise.then(({name,age})=>{
+                alert(`Your name is: ${name}\nYour age is: ${age}`);
+            })
+            .catch(error => {
+                    alert('Error: ' + error);
+                });
+        }
+
+        
+    </script>
+</body>
+</html>
